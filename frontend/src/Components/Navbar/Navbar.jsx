@@ -1,7 +1,7 @@
 import "antd/dist/antd.css";
 import "./Navbar.css";
 import { Container } from "@chakra-ui/react";
-import { Menu, Dropdown, button } from "antd";
+import { Menu, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
