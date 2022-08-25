@@ -39,8 +39,10 @@ const CheckoutProducts = () => {
                               <img style={{marginRight:"10px"}} width="80px" height="80px" src={elem.image} alt="" />
                           </div>
                           <div>
+
                               <p>{elem.title}</p>
                               <p>${elem.price* elem.qty}</p>
+                              
                           </div>
                           
                       </div>
