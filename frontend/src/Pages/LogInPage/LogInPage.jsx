@@ -27,7 +27,7 @@ const LogInPage = () => {
           <form className="login__form" onSubmit={handleLogin}>
             <div>
               <label>* Email address</label>
-              <div className="login__input">
+              <div className="login__input"
                 <input
                   type="email"
                   value={email}
