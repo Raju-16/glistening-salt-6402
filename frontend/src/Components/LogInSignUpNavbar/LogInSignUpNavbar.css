@@ -1,0 +1,24 @@
+.loginsignupnavbar {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 12px 0px, rgba(0, 0, 0, 0.3) 0px 0px 7px 0px;; */
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.loginsignupnavbar img{
+    width: 195px;
+    margin-left: 35px;
+}
+
+@media(max-width: 1115px){
+    .loginsignupnavbar{
+        justify-content: center;
+    }
+    .loginsignupnavbar img{
+        margin: 0;
+    }
+}

@@ -1,0 +1,36 @@
+/* .onclick__border {
+
+} */
+
+.emptyfield__warning {
+  height: 45px;
+  background-color: rgb(250,232,230);
+  color: rgb(196,44,33);
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  padding: 0px 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+.clicked__button{
+  border: none;
+  padding: 12px 0px;
+  background-color: rgb(34,34,34);
+  color: rgb(225, 225, 225);
+  font-family: Lato, sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  font-weight: 700;
+}
+
+.clicked__button:hover{
+  cursor: pointer;
+  background-color: rgb(94, 94, 94);
+}
