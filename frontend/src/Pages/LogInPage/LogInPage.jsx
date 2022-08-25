@@ -4,6 +4,10 @@ import "./LogInPage.css";
 import LogInSignUpNavbar from "../../Components/LogInSignUpNavbar/LogInSignUpNavbar";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { LoginUser } from "../../Redux/UserReducer/action";
+import {
+  USER_LOGIN_FAILURE,
+  USER_LOGIN_SUCCESS,
+} from "../../Redux/UserReducer/actionTypes";
 
 const LogInPage = () => {
   const [email, setEmail] = useState("");
@@ -14,10 +18,15 @@ const LogInPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (email && password) {
-      dispatch(LoginUser({ email, password }));
+      dispatch(LoginUser({ email, password })).then((r) => {
+        if (r.type === USER_LOGIN_SUCCESS) {
+          console.log("login success");
+        } else if (r.type === USER_LOGIN_FAILURE) {
+          console.log("login fail");
+        }
+      });
     }
   };
-
   return (
     <div className="loginpage">
       <LogInSignUpNavbar />

@@ -3,15 +3,15 @@
     padding-bottom: 70px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 55px;
 }
 
 .login__all {
-    width: 65%;
+    width: 66%;
     margin: auto;
     background: transparent;
     display: flex;
-    gap: 35px;
+    gap: 32px;
 }
 
 .login__left {
