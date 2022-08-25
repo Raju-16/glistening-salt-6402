@@ -5,11 +5,11 @@ import * as types from "./Cart_ActionTypes";
 
 // Action Creators
 export const GET_CART_PRODUCTS = () => (dispatch) => {
-    dispatch({ type: types.GET_CART_PRODUCTS });
+    // dispatch({ type: types.GET_CART_PRODUCTS });
     axios.get(`http://localhost:8080/cartProducts`)
         .then(function (response) {
             console.log(response.data);
-            dispatch({type : GET_CART_PRODUCTS,payload : response.data})
+            dispatch({type : types.GET_CART_PRODUCTS,payload : response.data})
         })
         .catch(function (error) {
         console.log(error);

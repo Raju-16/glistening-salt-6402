@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch ,useSelector} from "react-redux";
 import { TD } from "./Style";
 import { BsX } from "react-icons/bs";
-import { deleteProduct ,updateQty} from "./Cart_Action";
+import { deleteProduct ,updateQty} from "../../Redux/CartReducer/Cart_Action";
 const CartItem = ({ image, title, qty, price, id }) => {
     const myState = useSelector((state) => state.cartReducer.cartProducts)
   const dispatch = useDispatch();

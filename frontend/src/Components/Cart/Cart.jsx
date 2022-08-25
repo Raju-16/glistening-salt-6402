@@ -4,7 +4,7 @@ import OffersInCart from "./OffersInCart";
 import CartItem from "./Cartitem";
 import { TABLE, TD, MainContainer } from "./Style";
 import GiftSelection from "./GiftSelection";
-import { GET_CART_PRODUCTS } from "./Cart_Action";
+import { GET_CART_PRODUCTS } from "../../Redux/CartReducer/Cart_Action";
 
 
 const Cart = () => {
@@ -35,9 +35,9 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {/* {myState.map((elem) => {
+            {myState.map((elem) => {
               return <CartItem key={elem.id} {...elem} />;
-            })} */}
+            })}
           </tbody>
         </TABLE>
         <div className="div">
