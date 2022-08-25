@@ -9,7 +9,7 @@ const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch():
 
   const handleLogin = (e) => {
     e.preventDefault();
