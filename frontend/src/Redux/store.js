@@ -1,9 +1,19 @@
-import { applyMiddleware, legacy_createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import {
+  applyMiddleware,
+  combineReducers,
+  compose,
+  legacy_createStore,
+} from "redux";
 import thunk from "redux-thunk";
-import { reducer } from "./UserReducer/reducer";
+import { cartReducer } from "./UserReducer/cartReducer";
+import { userReducer } from "./UserReducer/userReducer";
+
+const reduxDevTool =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+
+const rootReducer = combineReducers({ cartReducer, userReducer });
 
 export const store = legacy_createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(thunk))
+  rootReducer,
+  compose(applyMiddleware(thunk), reduxDevTool)
 );
