@@ -1,9 +1,83 @@
 import "antd/dist/antd.css";
 import "./Navbar.css";
-import { Container } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import { Menu, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
+const skin101 = (
+  <div
+    className="megadropdown"
+    style={{
+      display: "flex",
+      margin: "1rem",
+      justifyContent: "space-around",
+      width: "100%",
+      height: "30vh",
+      background: "white",
+    }}
+  >
+    <div style={{ margin: "1rem" }}>
+      <Box
+        width="200px"
+        height="150px"
+        _hover={{
+          boxShadow:
+            "rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+        }}
+      >
+        <img
+          style={{ width: "200px", height: "150px" }}
+          src="https://static.thcdn.com/navigation/208/2021/05/original-blog-3-20210523-20210525.jpg"
+          alt=""
+        />
+        <h2 style={{ padding: ".5rem", textAlign: "center" }}>
+          Answer to your skin care questions
+        </h2>
+      </Box>
+    </div>
+
+    <div style={{ margin: "1rem" }}>
+      <Box
+        width="200px"
+        height="150px"
+        _hover={{
+          boxShadow:
+            "rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+        }}
+      >
+        <img
+          style={{ width: "200px", height: "150px" }}
+          src="https://static.thcdn.com/navigation/208/2021/05/original-blog-2-20210523-20210525.jpg"
+          alt=""
+        />
+        <h2 style={{ padding: ".5rem", textAlign: "center" }}>
+          Become a skin expert
+        </h2>
+      </Box>
+    </div>
+
+    <div style={{ margin: "1rem" }}>
+      <Box
+        width="200px"
+        height="150px"
+        _hover={{
+          boxShadow:
+            "rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+        }}
+      >
+        <img
+          style={{ width: "200px", height: "150px" }}
+          src="https://static.thcdn.com/navigation/208/2021/05/original-blog-1-20210523-20210525.jpg"
+          alt=""
+        />
+        <h2 style={{ padding: ".5rem", textAlign: "center" }}>
+          How-tos and more{" "}
+        </h2>
+      </Box>
+    </div>
+  </div>
+);
 
 const TannerGoods = (
   <div
@@ -208,6 +282,7 @@ const TannerGoods = (
     </div>
   </div>
 );
+
 const MazamaWares = (
   <div style={{ marginTop: ".5rem" }}>
     <Menu
@@ -449,7 +524,7 @@ const GiftsSets = (
   </div>
 );
 const SummerShop = (
-  <div style={{ marginTop: ".5rem" }}>    
+  <div style={{ marginTop: ".5rem" }}>
     <Menu
       items={[
         {
@@ -628,87 +703,199 @@ const Navbar = () => {
       <Container pt="2rem" pb="1rem" display="flex" maxW="container.2xl">
         <Container maxW="container.2xl" display="flex">
           <Dropdown
-            style={{ width: "100%" }}
+            style={{
+              width: "100%",
+              paddingTop: ".5rem",
+              paddingBottom: ".5rem",
+            }}
             overlay={TannerGoods}
             placement="bottom"
           >
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Brands
             </button>
           </Dropdown>
 
           <Dropdown overlay={SummerShop} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Summer Shop
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Browse By
             </button>
           </Dropdown>
 
           <Dropdown overlay={TannerGoods} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Bestsellers
             </button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Skin Care
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Makeup
             </button>
           </Dropdown>
 
           <Dropdown overlay={TannerGoods} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Hair Care
             </button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Bath & Body
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Tools & Devices
             </button>
           </Dropdown>
 
           <Dropdown overlay={GiftsSets} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Gifts & Sets
             </button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               BeautyFIX
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Offers
             </button>
           </Dropdown>
           <Dropdown overlay={NewArrival} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               New Arrivals
             </button>
           </Dropdown>
-          <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+          <Dropdown overlay={skin101} placement="bottom">
+            <button
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              type="link"
+              className="btn-navbar"
+            >
               Skin 101
             </button>
           </Dropdown>
