@@ -8,7 +8,7 @@ const initialState = {
   isError: false,
 };
 
-export const userReducer = (state = initialState, { type, payload }) => {
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.USER_SIGNUP_REQUEST:
       return {
