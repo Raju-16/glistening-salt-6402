@@ -5,7 +5,7 @@ import {
   legacy_createStore,
 } from "redux";
 import thunk from "redux-thunk";
-import { cartReducer } from "./UserReducer/cartReducer";
+import { cartReducer } from "./CartReducer/cartReducer";
 import { userReducer } from "./UserReducer/userReducer";
 
 const reduxDevTool =
