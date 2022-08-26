@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from "./userActionTypes";
 import axios from "axios";
 
 export const SignupUser = (params) => async (dispatch) => {
