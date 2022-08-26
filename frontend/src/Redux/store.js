@@ -17,3 +17,4 @@ export const store = legacy_createStore(
   rootReducer,
   compose(applyMiddleware(thunk), reduxDevTool)
 );
+

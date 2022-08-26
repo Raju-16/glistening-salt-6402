@@ -1,0 +1,11 @@
+.productspage {
+    display: flex;
+    padding: 35px 25px;
+    gap: 30px;
+}
+
+.products__list{
+    border: 1px solid red;
+    height: 10px;
+    flex: 7;
+}
