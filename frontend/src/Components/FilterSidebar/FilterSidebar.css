@@ -1,10 +1,6 @@
 .filtersidebar{
     flex: 2.2;
-}
-
-.pro{
-    border: 1px solid red;
-    height: 100px;
+    height: fit-content;
 }
 
 .filtersidebar__heading{
