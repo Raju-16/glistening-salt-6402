@@ -1,13 +1,12 @@
 import "antd/dist/antd.css";
 import "./Navbar.css";
-import { Box, Container } from "@chakra-ui/react";
+import { Box, Button, Container } from "@chakra-ui/react";
 import { Menu, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const skin101 = (
   <div
-    className="megadropdown"
     style={{
       display: "flex",
       margin: "1rem",
@@ -81,14 +80,13 @@ const skin101 = (
 
 const TannerGoods = (
   <div
-    className="megadropdown"
     style={{
       display: "flex",
       margin: "1rem",
       justifyContent: "space-around",
       width: "100%",
       height: "50vh",
-      background: "white",
+      background: "",
     }}
   >
     <div style={{ margin: "1rem" }}>
@@ -700,7 +698,13 @@ const Navbar = () => {
 
   return (
     <>
-      <Container pt="2rem" pb="1rem" display="flex" maxW="container.2xl">
+      <Container
+        pt="2rem"
+        pb="1rem"
+        margin={"auto"}
+        display="flex"
+        maxW="container.2xl"
+      >
         <Container maxW="container.2xl" display="flex">
           <Dropdown
             style={{
@@ -711,193 +715,198 @@ const Navbar = () => {
             overlay={TannerGoods}
             placement="bottom"
           >
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
+              //
             >
               Brands
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={SummerShop} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Summer Shop
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Browse By
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={TannerGoods} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Bestsellers
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Skin Care
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Makeup
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={TannerGoods} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Hair Care
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button
-              style={{ width: "100%" }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Bath & Body
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Tools & Devices
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={GiftsSets} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Gifts & Sets
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               BeautyFIX
-            </button>
+            </Button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Offers
-            </button>
+            </Button>
           </Dropdown>
           <Dropdown overlay={NewArrival} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               New Arrivals
-            </button>
+            </Button>
           </Dropdown>
           <Dropdown overlay={skin101} placement="bottom">
-            <button
-              style={{
-                width: "100%",
-                paddingTop: ".5rem",
-                paddingBottom: ".5rem",
-              }}
+            <Button
+              w="100%"
+              borderRadius={"none"}
+              variant="ghost"
+              size="sm"
+              fontWeight={400}
+              fontSize={"medium"}
               type="link"
-              className="btn-navbar"
             >
               Skin 101
-            </button>
+            </Button>
           </Dropdown>
         </Container>
       </Container>

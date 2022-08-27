@@ -14,6 +14,7 @@ import {
   InputGroup,
   InputLeftElement,
   InputRightElement,
+  Badge,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { AiOutlineShopping } from "react-icons/ai";
@@ -22,101 +23,31 @@ import { BiUser } from "react-icons/bi";
 import { Menu, Dropdown } from "antd";
 
 const GiftsSets = (
-  <Container maxW={"container.sm"}>
-    <Menu
-      items={[
-        {
-          key: "1",
-          label: (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.antgroup.com"
-            >
-              Skin Care Kits & Sets
-            </a>
-          ),
-        },
-        {
-          key: "2",
-          label: (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.aliyun.com"
-            >
-              Makeup Kits & sets
-            </a>
-          ),
-        },
-        {
-          key: "3",
-          label: (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.luohanacademy.com"
-            >
-              Hair Care Kits & sets
-            </a>
-          ),
-        },
-        {
-          key: "4",
-          label: (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.luohanacademy.com"
-            >
-              Bath & Body Kits & sets
-            </a>
-          ),
-        },
-        {
-          key: "5",
-          label: (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.luohanacademy.com"
-            >
-              Men's Kits & sets
-            </a>
-          ),
-        },
-        {
-          key: "5",
-          label: (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.luohanacademy.com"
-            >
-              BeautyFIX
-            </a>
-          ),
-        },
-        {
-          key: "5",
-          label: (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.luohanacademy.com"
-            >
-              Best of Dermstore
-            </a>
-          ),
-        },
-      ]}
-    />
+  <Container w="50vh" bgColor="black" p="1rem">
+    <Container maxW={"container.sm"}>
+      <Stack w="100%">
+        <Button w="100%" borderRadius={"none"}>
+          Login
+        </Button>
+        <Button w="100%" borderRadius={"none"}>
+          Register
+        </Button>
+      </Stack>
+    </Container>
   </Container>
 );
 
 const NavbarHeader = () => {
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState("right");
+
+  const Cart = (
+    <Container w="50vh" bgColor="black" p="1rem">
+      <Container maxW={"container.sm"}>
+        <Stack w="100%">{}</Stack>
+      </Container>
+    </Container>
+  );
 
   return (
     <Container maxW="container.2xl" m="auto">
@@ -153,7 +84,7 @@ const NavbarHeader = () => {
                 paddingBottom: ".5rem",
               }}
               overlay={GiftsSets}
-              placement="bottom"
+              placement="bottomRight"
             >
               <Button
                 borderRadius={"none"}
@@ -167,14 +98,24 @@ const NavbarHeader = () => {
           </Container>
 
           <Container>
-            <Button
-              borderRadius={"none"}
-              variant="ghost"
-              leftIcon={<AiOutlineShopping fontSize="2rem" />}
-              type="link"
+            <Dropdown
+              style={{
+                width: "100%",
+                paddingTop: ".5rem",
+                paddingBottom: ".5rem",
+              }}
+              overlay={Cart}
+              placement="bottomRight"
             >
-              Cart
-            </Button>
+              <Button
+                borderRadius={"none"}
+                variant="ghost"
+                leftIcon={<AiOutlineShopping fontSize="2rem" />}
+                type="link"
+              >
+                Cart
+              </Button>
+            </Dropdown>
           </Container>
         </HStack>
       </HStack>
@@ -183,62 +124,3 @@ const NavbarHeader = () => {
 };
 
 export default NavbarHeader;
-
-// const NavbarHeader = () => {
-//   return (
-//     <Container maxW="container.2xl" border={"1px solid black"}>
-//       <Flex>
-//         <Box ml="45px">
-//           <img src="/images/nav-imgg.jpg" />
-//         </Box>
-
-//         <Box>
-//           <Flex
-//             mt="40px"
-//             ml="240px"
-//             width="453px"
-//             height="50px"
-//             border={"1px solid black"}
-//           >
-//             <Box>
-//               <Input
-//                 placeholder="Search for a product or brand..."
-//                 size="lg"
-//                 width={"400px"}
-//                 borderRadius="none"
-//               />
-//             </Box>
-//             <Box>
-//               <Button
-//                 // mt="39px"
-//                 backgroundColor="white"
-//                 width="50px"
-//                 height="48px"
-//                 border="none"
-//                 borderRadius="none"
-//               >
-//                 <SearchIcon />
-//               </Button>
-//             </Box>
-//           </Flex>
-//         </Box>
-//         <Box>
-//           <Flex ml="200px" mt="43px" width="120px" className="btn-navbar">
-//             <img src="/images/icons8-user-32.png" />
-//             <button style={{ width: "100%" }} type="link">
-//               Account
-//             </button>
-//           </Flex>
-//         </Box>
-//         <Box>
-//           <Flex ml="100px" mt="43px" width="90px" className="btn-navbar">
-//             <img src="/images/shopping-bag.png" width="35px" height="35px" />
-//             <button style={{ width: "100%" }} type="link">
-//               Cart
-//             </button>
-//           </Flex>
-//         </Box>
-//       </Flex>
-//     </Container>
-//   );
-// };
