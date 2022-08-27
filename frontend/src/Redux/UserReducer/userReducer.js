@@ -1,4 +1,4 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from "./userActionTypes";
 
 const initialState = {
   isAuth: false,
@@ -8,7 +8,7 @@ const initialState = {
   isError: false,
 };
 
-export const reducer = (state = initialState, { type, payload }) => {
+export const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.USER_SIGNUP_REQUEST:
       return {
