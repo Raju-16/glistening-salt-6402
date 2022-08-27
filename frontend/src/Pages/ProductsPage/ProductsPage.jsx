@@ -22,7 +22,7 @@ const ProductsPage = () => {
       <div className="products__list">
         <div className="products__heading">
           <p className="products__headTitle">Hair Care Products</p>
-          <p className="products__count">56 results</p>
+          <p className="products__count">{products.length} results</p>
         </div>
         <div className="products__functionality">
           <div className="products__sorting">
