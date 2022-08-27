@@ -42,10 +42,10 @@ const NavbarHeader = () => {
   const [placement, setPlacement] = useState("right");
 
   const Cart = (
-    <Container w="50vh" bgColor="black" p="1rem">
-      <Container maxW={"container.sm"}>
+    <Container w="50vh" bgColor="white" p="1rem">
+      {/* <Container maxW={"container.sm"}>
         <Stack w="100%">{}</Stack>
-      </Container>
+      </Container> */}
     </Container>
   );
 
