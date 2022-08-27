@@ -23,21 +23,6 @@ import { BiUser } from "react-icons/bi";
 import { Menu, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 
-const GiftsSets = (
-  <Container w="50vh" bgColor="black" p="1rem">
-    <Container maxW={"container.sm"}>
-      <Stack w="100%">
-        <Button w="100%" borderRadius={"none"} onClick={handleLogin}>
-          Login
-        </Button>
-        <Button w="100%" borderRadius={"none"} onClick={handleLogin}>
-          Register
-        </Button>
-      </Stack>
-    </Container>
-  </Container>
-);
-
 const NavbarHeader = () => {
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState("right");
@@ -50,6 +35,21 @@ const NavbarHeader = () => {
   const handleLogin = () => {
     navigate("/login");
   };
+
+  const GiftsSets = (
+    <Container w="50vh" bgColor="black" p="1rem">
+      <Container maxW={"container.sm"}>
+        <Stack w="100%">
+          <Button w="100%" borderRadius={"none"} onClick={handleLogin}>
+            Login
+          </Button>
+          <Button w="100%" borderRadius={"none"} onClick={handleLogin}>
+            Register
+          </Button>
+        </Stack>
+      </Container>
+    </Container>
+  );
 
   const Cart = (
     <Container w="50vh" bgColor="white" p="1rem">
