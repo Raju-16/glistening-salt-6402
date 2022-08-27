@@ -1,11 +1,74 @@
 .productspage {
     display: flex;
-    padding: 35px 25px;
-    gap: 30px;
+    padding: 35px 30px;
+    gap: 35px;
 }
 
 .products__list{
-    border: 1px solid red;
-    height: 10px;
+    /* border: 1px solid red; */
+    height: fit-content;
     flex: 7;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.products__heading{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+}
+
+.products__headTitle{
+    font-family: "Poly Regular", "Times New Roman", serif;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+.products__count{
+    font-family: "lato regular", Helvetica, Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    line-height: 19.992px;
+    font-weight: 500;
+}
+
+.products__functionality{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.products__sorting{
+    display: flex;
+    gap: 16px;
+}
+
+.products__sorting label{
+    font-family: "lato regular", Helvetica, Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    font-family: 14px;
+    line-height: 40px;
+    font-weight: 500;
+}
+
+.products__sorting select{
+    width: 250px;
+    font-family: "lato regular", Helvetica, Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    line-height: 19.992px;
+    padding: 8px 19.2px 8px 5px;
+    font-weight: 500;
+}
+
+.products__allproducts{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 35px;
 }
