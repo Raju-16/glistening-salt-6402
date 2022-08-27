@@ -4,7 +4,7 @@ import OffersInCart from "./OffersInCart";
 import CartItem from "./Cartitem";
 import { TABLE, TD, MainContainer } from "./Style";
 import GiftSelection from "./GiftSelection";
-import { GET_CART_PRODUCTS } from "../../Redux/CartReducer/Cart_Action";
+import { GET_CART_PRODUCTS } from "../../Redux/CartReducer/cartAction";
 
 
 const Cart = () => {
