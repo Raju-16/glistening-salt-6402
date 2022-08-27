@@ -21,15 +21,16 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { GoSearch } from "react-icons/go";
 import { BiUser } from "react-icons/bi";
 import { Menu, Dropdown } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const GiftsSets = (
   <Container w="50vh" bgColor="black" p="1rem">
     <Container maxW={"container.sm"}>
       <Stack w="100%">
-        <Button w="100%" borderRadius={"none"}>
+        <Button w="100%" borderRadius={"none"} onClick={handleLogin}>
           Login
         </Button>
-        <Button w="100%" borderRadius={"none"}>
+        <Button w="100%" borderRadius={"none"} onClick={handleLogin}>
           Register
         </Button>
       </Stack>
@@ -40,6 +41,15 @@ const GiftsSets = (
 const NavbarHeader = () => {
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState("right");
+  const navigate = useNavigate();
+
+  const handleCart = () => {
+    navigate("/cart");
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   const Cart = (
     <Container w="50vh" bgColor="white" p="1rem">
@@ -91,6 +101,7 @@ const NavbarHeader = () => {
                 variant="ghost"
                 leftIcon={<BiUser fontSize="2rem" />}
                 type="link"
+                onClick={handleLogin}
               >
                 Account
               </Button>
@@ -112,6 +123,7 @@ const NavbarHeader = () => {
                 variant="ghost"
                 leftIcon={<AiOutlineShopping fontSize="2rem" />}
                 type="link"
+                onClick={handleCart}
               >
                 Cart
               </Button>
