@@ -1,9 +1,22 @@
+<<<<<<< HEAD
 import { applyMiddleware, legacy_createStore } from "redux";
 // import { composeWithDevTools } from "redux-devtools-extension";
+=======
+import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+>>>>>>> fcdc57cb925e622a01c020df0e6de46e4ccd12aa
 import thunk from "redux-thunk";
-import { reducer } from "./UserReducer/reducer";
+import { userReducer } from "./UserReducer/userReducer";
+import { productReducer } from "./ProductReducer/productReducer";
+
+const reduxDevTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const rootReducer = combineReducers({
+  user: userReducer,
+  product: productReducer,
+});
 
 export const store = legacy_createStore(
+<<<<<<< HEAD
   reducer,
   applyMiddleware(thunk)
 );
@@ -30,3 +43,9 @@ export const store = legacy_createStore(
 //   rootReducer,
 //   compose(applyMiddleware(thunk), reduxDevTool)
 // );
+=======
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
+>>>>>>> fcdc57cb925e622a01c020df0e6de46e4ccd12aa
