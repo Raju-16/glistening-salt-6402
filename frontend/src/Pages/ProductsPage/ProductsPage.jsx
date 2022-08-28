@@ -1,18 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useSearchParams } from "react-router-dom";
 import FilterSidebar from "../../Components/FilterSidebar/FilterSidebar";
 import ProductFromProductsPage from "../../Components/ProductFromProductsPage/ProductFromProductsPage";
-import { getProducts } from "../../Redux/ProductReducer/productAction";
+import {
+  getProducts,
+  getSortedProducts,
+} from "../../Redux/ProductReducer/productAction";
 import "./ProductsPage.css";
 
 const ProductsPage = () => {
   const products = useSelector((state) => state.product.products);
   const dispatch = useDispatch();
+  const [sortOrder, setSortOrder] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const en_brand_content = searchParams.getAll("en_brand_content");
+  console.log("products", products);
+
+  const handleSortOrder = (e) => {
+    setSortOrder(e.target.value);
+
+    console.log(products);
+  };
 
   useEffect(() => {
-    dispatch(getProducts({ brand: "Alterna" }));
-    // }
+    if (sortOrder === "priceAscending") {
+      products.sort((a, b) => a.priceDiscount - b.priceDiscount);
+    } else if (sortOrder === "priceDescending") {
+      products.sort((a, b) => b.priceDiscount - a.priceDiscount);
+    } else if (sortOrder === "title") {
+      console.log(sortOrder);
+      products.sort((a, b) => {
+        if (a.title > b.title) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+      console.log(products);
+    } else if (sortOrder === "default") {
+      console.log(sortOrder);
+      dispatch(getProducts());
+    }
+  }, [sortOrder, dispatch]);
+
+  useEffect(() => {
+    if (products?.length === 0) {
+      dispatch(getProducts());
+    }
   }, [products?.length, dispatch]);
+
+  useEffect(() => {
+    if (sortOrder) {
+      setSearchParams({
+        sortOrder,
+      });
+    }
+  }, [sortOrder, setSearchParams]);
 
   // console.log(products);
 
@@ -22,19 +66,19 @@ const ProductsPage = () => {
       <div className="products__list">
         <div className="products__heading">
           <p className="products__headTitle">Hair Care Products</p>
-          <p className="products__count">56 results</p>
+          <p className="products__count">{products.length} results</p>
         </div>
         <div className="products__functionality">
           <div className="products__sorting">
             <label>Sort by</label>
-            <select>
-              <option value="Default">Default</option>
+            <select name="sortOrder" onChange={(e) => handleSortOrder(e)}>
+              <option value="default">Default</option>
               <option value="priceAscending">Price:Low to High</option>
               <option value="priceDescending">Price:High to Low</option>
               <option value="title">A-Z</option>
             </select>
           </div>
-          <div className="products__pagination">pagination</div>
+          {/* <div className="products__pagination">pagination</div> */}
         </div>
         <div className="products__allproducts">
           {products?.length > 0 &&

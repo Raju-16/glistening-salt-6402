@@ -68,7 +68,7 @@ const NavbarHeader = () => {
         textAlign={"center"}
       >
         <Container>
-          <Image src="/images/nav-imgg.jpg" />
+          <Image onClick={()=> navigate("/")} src="/images/nav-imgg.jpg" />
         </Container>
 
         <Container maxW="container.sm">

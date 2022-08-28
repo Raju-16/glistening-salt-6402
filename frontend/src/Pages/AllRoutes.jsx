@@ -5,7 +5,7 @@ import LogInPage from "./LogInPage/LogInPage";
 import Cart from "./Cart/Cart";
 import Checkout from "./Checkout/Checkout";
 import SignUpPage from "./SignUpPage/SignUpPage";
-
+import ProductsPage from "./ProductsPage/ProductsPage";
 
 const AllRoutes = () => {
   return (
@@ -15,6 +15,7 @@ const AllRoutes = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/products" element={<ProductsPage />} />
     </Routes>
   );
 };

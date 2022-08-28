@@ -14,6 +14,8 @@ import {
   getL6Data,
   getL7Data,
 } from "../../Redux/HomeReducer/homeAction";
+import NavbarHeader from "../../Components/Navbar/NavbarHeader";
+import Navbar from "../../Components/Navbar/Navbar";
 
 const HomePage = () => {
   const productsL2 = useSelector((state) => state.homeReducer.productsL2);
@@ -47,6 +49,8 @@ const HomePage = () => {
 
   return (
     <div>
+      <NavbarHeader />
+      <Navbar />
       <div id="line1">
         <div>
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">

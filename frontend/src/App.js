@@ -7,8 +7,7 @@ import AllRoutes from "./Pages/AllRoutes.jsx";
 function App() {
   return (
     <div className="App">
-      <NavbarHeader />
-      <Navbar />
+      
       <AllRoutes />
       <Footer />
     </div>

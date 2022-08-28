@@ -1,14 +1,12 @@
 import * as actionTypes from "./productActionTypes";
 import axios from "axios";
 
-export const getProducts = (params) => async (dispatch) => {
-  console.log(params);
+export const getProducts = () => async (dispatch) => {
   dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
   return await axios({
     method: "get",
     url: "/api/products",
-    baseURL: "http://localhost:1000",
-    data: params,
+    baseURL: "https://pacific-fortress-81214.herokuapp.com/",
   })
     .then((r) =>
       dispatch({ type: actionTypes.GET_PRODUCTS_SUCCESS, payload: r.data })

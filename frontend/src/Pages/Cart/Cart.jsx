@@ -1,27 +1,27 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import OffersInCart from "./OffersInCart"; 
+import OffersInCart from "./OffersInCart";
 import CartItem from "./Cartitem";
 import { TABLE, TD, MainContainer } from "./Style";
 import GiftSelection from "./GiftSelection";
 import { GET_CART_PRODUCTS } from "../../Redux/CartReducer/cartAction";
-
+import NavbarHeader from "../../Components/Navbar/NavbarHeader";
+import Navbar from "../../Components/Navbar/Navbar";
 
 const Cart = () => {
   const myState = useSelector((state) => state.cartReducer.cartProducts);
- 
+
   const dispatch = useDispatch();
   useEffect(() => {
-    if(myState?.length===0)
-    {
+    if (myState?.length === 0) {
       dispatch(GET_CART_PRODUCTS());
     }
-   
-  },[myState?.length, dispatch] );
+  }, [myState?.length, dispatch]);
   console.log(myState);
   return (
     <>
-      {/* <Navbar /> */}
+      <NavbarHeader />
+      <Navbar />
       <OffersInCart />
       <MainContainer>
         <TABLE>

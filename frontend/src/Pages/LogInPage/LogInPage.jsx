@@ -4,12 +4,14 @@ import "./LogInPage.css";
 import LogInSignUpNavbar from "../../Components/LogInSignUpNavbar/LogInSignUpNavbar";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { LoginUser } from "../../Redux/UserReducer/userAction";
+import { useNavigate } from "react-router-dom";
 
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -92,7 +94,12 @@ const LogInPage = () => {
         </div>
         <div className="way__to__signup login__common__leftright">
           <p className="login__heading">New Customers</p>
-          <button className="clicked__button">REGISTER</button>
+          <button
+            onClick={() => navigate("/signup")}
+            className="clicked__button"
+          >
+            REGISTER
+          </button>
         </div>
       </div>
     </div>

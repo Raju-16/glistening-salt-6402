@@ -579,7 +579,6 @@ const SummerShop = (
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.luohanacademy.com"
             >
               Hair Care
             </a>
@@ -808,6 +807,7 @@ const Navbar = () => {
               fontWeight={400}
               fontSize={"medium"}
               type="link"
+              onClick={() => navigate("/products")}
             >
               Hair Care
             </Button>
