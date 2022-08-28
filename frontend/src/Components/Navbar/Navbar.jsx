@@ -449,7 +449,7 @@ const GiftsSets = (
   </div>
 );
 const SummerShop = (
-  <div style={{ marginTop: ".5rem" }}>    
+  <div style={{ marginTop: ".5rem" }}>
     <Menu
       items={[
         {
@@ -632,83 +632,139 @@ const Navbar = () => {
             overlay={TannerGoods}
             placement="bottom"
           >
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Brands
             </button>
           </Dropdown>
 
           <Dropdown overlay={SummerShop} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Summer Shop
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Browse By
             </button>
           </Dropdown>
 
           <Dropdown overlay={TannerGoods} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Bestsellers
             </button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Skin Care
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Makeup
             </button>
           </Dropdown>
 
           <Dropdown overlay={TannerGoods} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Hair Care
             </button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Bath & Body
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Tools & Devices
             </button>
           </Dropdown>
 
           <Dropdown overlay={GiftsSets} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Gifts & Sets
             </button>
           </Dropdown>
 
           <Dropdown overlay={MazamaWares} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               BeautyFIX
             </button>
           </Dropdown>
 
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Offers
             </button>
           </Dropdown>
           <Dropdown overlay={NewArrival} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               New Arrivals
             </button>
           </Dropdown>
           <Dropdown overlay={FeaturedCollections} placement="bottom">
-            <button style={{ width: "100%" }} type="link" className="btn-navbar">
+            <button
+              style={{ width: "100%" }}
+              type="link"
+              className="btn-navbar"
+            >
               Skin 101
             </button>
           </Dropdown>

@@ -51,6 +51,20 @@ body {
 /* Carousel-1 Css End*/
 
 /* Css start line 2 */
+#headingL2 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
+
+#paraL2 {
+  font-size: 14px;
+  font-family: "lato regular", Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin: 10px;
+}
 
 #TitleL2,
 #PriceL2 {
@@ -69,11 +83,86 @@ body {
 
 /* Css End line 2 */
 
-/* Css start line 5*/
+#headingL3 {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
 
-#lintMain{
-  display: flex;
-  border: 10px solid yellow;
+#headingL4 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
+
+#paraL4 {
+  font-size: 14px;
+  font-family: "lato regular", Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin: 10px;
 }
 
 /* Css start line 5*/
+
+#line5Main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 20px;
+}
+
+#headingL5 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
+
+/* Css start line 5*/
+
+#headingL6 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
+
+#headingL7 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
+
+#headingL8 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
+
+#headingL10 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 500;
+  font-family: "Poly Regular", "Times New Roman", serif;
+  margin: 7px;
+}
+
+#paraL10 {
+  font-size: 14px;
+  font-family: "lato regular", Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin: 10px;
+  width: 90%;
+  /* text-align: justify;
+  margin: center; */
+}

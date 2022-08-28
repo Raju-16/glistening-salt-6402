@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "./LogInPage.css";
 import LogInSignUpNavbar from "../../Components/LogInSignUpNavbar/LogInSignUpNavbar";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { LoginUser } from "../../Redux/UserReducer/action";
+import { LoginUser } from "../../Redux/UserReducer/userAction";
 
 const LogInPage = () => {
   const [email, setEmail] = useState("");

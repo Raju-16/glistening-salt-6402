@@ -13,6 +13,7 @@ const FilterSidebar = () => {
   const [price, setPrice] = useState(true);
   const [review, setReview] = useState(true);
   const [savings, setSavings] = useState(true);
+  
   return (
     <div className="filtersidebar">
       <p className="filtersidebar__heading">

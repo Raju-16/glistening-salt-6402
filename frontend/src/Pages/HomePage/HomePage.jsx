@@ -1,19 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./HomePage.css";
 import { Pagination, Navigation } from "swiper";
-import { HomePageL2 } from "../../Data/HomePageL2";
-import { HomePageL3 } from "../../Data/HomePageL3";
-import { HomePageL4 } from "../../Data/HomePageL4";
-import { HomePageL5 } from "../../Data/HomePageL5";
-import { HomePageL6 } from "../../Data/HomePageL6";
-import { HomePageL7 } from "../../Data/HomePageL7";
+import {
+  getL2Data,
+  getL3Data,
+  getL4Data,
+  getL5Data,
+  getL6Data,
+  getL7Data,
+} from "../../Redux/HomeReducer/homeAction";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  console.log(HomePageL2);
+  const dispatch = useDispatch();
+  const productsL2 = useSelector((state) => state.homeReducer.productsL2);
+  const productsL3 = useSelector((state) => state.homeReducer.productsL3);
+  const productsL4 = useSelector((state) => state.homeReducer.productsL4);
+  const productsL5 = useSelector((state) => state.homeReducer.productsL5);
+  const productsL6 = useSelector((state) => state.homeReducer.productsL6);
+  const productsL7 = useSelector((state) => state.homeReducer.productsL7);
+  console.log("productsL2", productsL2);
+  console.log("productsL3", productsL3);
+  console.log("productsL4", productsL4);
+  console.log("productsL5", productsL5);
+  console.log("productsL6", productsL6);
+  console.log("productsL7", productsL7);
+
+  useEffect(() => {
+    if (productsL2.length === 0) {
+      dispatch(getL2Data());
+    }
+    if (productsL3.length === 0) {
+      dispatch(getL3Data());
+    }
+    if (productsL4.length === 0) {
+      dispatch(getL4Data());
+    }
+    if (productsL5.length === 0) {
+      dispatch(getL5Data());
+    }
+    if (productsL6.length === 0) {
+      dispatch(getL6Data());
+    }
+    if (productsL7.length === 0) {
+      dispatch(getL7Data());
+    }
+  }, []);
+
   return (
     <div>
       <div id="line1">
@@ -25,6 +63,8 @@ const HomePage = () => {
                 width={"200px"}
                 height={"300px"}
               />
+              {/* <h1>This is for testing</h1>
+              <p>this is for paragrapah testing</p> */}
             </SwiperSlide>
             <SwiperSlide>
               <img
@@ -47,13 +87,13 @@ const HomePage = () => {
         <br />
       </div>
       <div id="line2">
-        <h2>Save with these SkinCeuticals Value Bundles</h2>
-        <p>
+        <h1 id="headingL2">Save with these SkinCeuticals Value Bundles</h1>
+        <p id="paraL2">
           Enjoy savings on formulas that work together to help you achieve your
           skin goals.
         </p>
         <div style={{ display: "flex" }}>
-          <div style={{ width: "45%" }}>
+          <div style={{ width: "45%", marginLeft: "5%" }}>
             <img
               src="https://static.thcdn.com/images/medium/webp/widgets/208-us/22/SkinC_Bundles-031222.png"
               width={"550px"}
@@ -74,19 +114,21 @@ const HomePage = () => {
               modules={[Pagination, Navigation]}
               className="mySwiper"
             >
-              {HomePageL2.map((item) => {
+              {productsL2.map((item) => {
                 return (
                   <SwiperSlide style={{ direction: "vertical" }}>
-                    <div key={item.id}>
-                      <img
-                        src={item.imageUrl}
-                        width={"200px"}
-                        height={"450px"}
-                      />
-                      <div id="TitleL2">{item.title}</div>
-                      <div id="PriceL2">{item.Price}</div>
-                      <button id="ButtonL2">Quick Buy</button>
-                    </div>
+                    <Link to={`/products/${item.id}`}>
+                      <div key={item.id}>
+                        <img
+                          src={item.imageUrl}
+                          width={"200px"}
+                          height={"450px"}
+                        />
+                        <div id="TitleL2">{item.title}</div>
+                        <div id="PriceL2">{item.Price}</div>
+                        <button id="ButtonL2">Quick Buy</button>
+                      </div>
+                    </Link>
                   </SwiperSlide>
                 );
               })}
@@ -100,7 +142,7 @@ const HomePage = () => {
       <br />
       <div id="line3">
         <div>
-          <h1>Best Seller</h1>
+          <h1 id="headingL3">Best Seller</h1>
           <Swiper
             slidesPerView={4}
             spaceBetween={5}
@@ -114,7 +156,7 @@ const HomePage = () => {
             modules={[Pagination, Navigation]}
             className="mySwiper"
           >
-            {HomePageL3.map((item) => {
+            {productsL3.map((item) => {
               return (
                 <SwiperSlide style={{ direction: "vertical" }}>
                   <div key={item.id}>
@@ -132,8 +174,8 @@ const HomePage = () => {
       <br />
       <br />
       <div id="line4">
-        <h2>Buy One, Get One Free: RevitaLash Cosmetics</h2>
-        <p>
+        <h2 id="headingL4">Buy One, Get One Free: RevitaLash Cosmetics</h2>
+        <p id="paraL4">
           For a limited time, buy a full-size RevitaBrow Advanced & get a FREE
           RevitaLash 1.0 mL or buy a full size RevitaLash Advanced & get a FREE
           RevitaBrow Advanced 1.5 mL or a RevitaLash Advanced 1.0 mL.
@@ -160,7 +202,7 @@ const HomePage = () => {
               modules={[Pagination, Navigation]}
               className="mySwiper"
             >
-              {HomePageL4.map((item) => {
+              {productsL4.map((item) => {
                 return (
                   <SwiperSlide style={{ direction: "vertical" }}>
                     <div key={item.id}>
@@ -188,14 +230,20 @@ const HomePage = () => {
       <br />
       <div id="line5">
         <div>
-          <h1>Shop By Category</h1>
-          <div id="lin5Main" style={{ display: "flex" }}>
-            {HomePageL5.map((item) => {
+          <h1 id="headingL5">Shop By Category</h1>
+          <div id="line5Main">
+            {productsL5.map((item) => {
               return (
-                <div key={item.id}>
-                  <img src={item.imageUrl} width={"30%"} height={"75%"} />
+                <div
+                  key={item.id}
+                  style={{
+                    border: "1px solid transparent",
+                    textAlign:"center",
+                  }}
+                >
+                  <img src={item.imageUrl} width={"430px"} height={"400px"} />
                   <div id="TitleL2">{item.title}</div>
-                  <div id="PriceL2">{item.detail}</div>``
+                  <div id="PriceL2">{item.detail}</div>
                 </div>
               );
             })}
@@ -206,7 +254,7 @@ const HomePage = () => {
       <br />
       <div id="line6">
         <div>
-          <h1>New Arival</h1>
+          <h1 id="headingL6">New Arival</h1>
           <div>
             <Swiper
               slidesPerView={5}
@@ -221,7 +269,7 @@ const HomePage = () => {
               modules={[Pagination, Navigation]}
               className="mySwiper"
             >
-              {HomePageL6.map((item) => {
+              {productsL6.map((item) => {
                 return (
                   <SwiperSlide style={{ direction: "vertical" }}>
                     <div key={item.id}>
@@ -247,7 +295,7 @@ const HomePage = () => {
       <br />
       <div id="line7">
         <div>
-          <h1>Now Trending</h1>
+          <h1 id="headingL7">Now Trending</h1>
           <div>
             <Swiper
               slidesPerView={4}
@@ -262,7 +310,7 @@ const HomePage = () => {
               modules={[Pagination, Navigation]}
               className="mySwiper"
             >
-              {HomePageL7.map((item) => {
+              {productsL7.map((item) => {
                 return (
                   <SwiperSlide style={{ direction: "vertical" }}>
                     <div key={item.id}>
@@ -284,7 +332,7 @@ const HomePage = () => {
       <br />
       <br />
       <div>
-        <h1>Featured Brands</h1>
+        <h1 id="headingL8">Featured Brands</h1>
         <div
           id="line8"
           style={{
@@ -348,8 +396,8 @@ const HomePage = () => {
         <br />
         <br />
         <div id="line10">
-          <h1>#MyDermstoreGlow</h1>
-          <p style={{ width: "90%", margin: "auto" }}>
+          <h1 id="headingL10">#MyDermstoreGlow</h1>
+          <p id="paraL10">
             We care about what goes on your skin, because of what’s within. Our
             assortment is top-rated, curated & authenticated—bringing you the
             highest quality products and straight-from-the-experts info to help
