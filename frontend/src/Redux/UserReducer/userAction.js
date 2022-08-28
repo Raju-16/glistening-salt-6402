@@ -12,7 +12,7 @@ export const SignupUser = (params) => async (dispatch) => {
     .then((r) =>
       dispatch({ type: actionTypes.USER_SIGNUP_SUCCESS, payload: r.data })
     )
-    .catch((e) => dispatch({ type: actionTypes.USER_SIGNUP_FAILURE }));
+    .catch(() => dispatch({ type: actionTypes.USER_SIGNUP_FAILURE }));
 };
 
 export const LoginUser = (params) => async (dispatch) => {
