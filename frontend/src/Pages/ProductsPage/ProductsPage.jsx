@@ -107,7 +107,7 @@ const ProductsPage = () => {
               <option value="title">A-Z</option>
             </select>
           </div>
-          <div className="products__pagination">pagination</div>
+          {/* <div className="products__pagination">pagination</div> */}
         </div>
         <div className="products__allproducts">
           {products?.length > 0 &&
