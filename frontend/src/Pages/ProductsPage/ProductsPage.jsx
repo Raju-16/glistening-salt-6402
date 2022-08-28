@@ -12,7 +12,7 @@ import "./ProductsPage.css";
 const ProductsPage = () => {
   const products = useSelector((state) => state.product.products);
   const dispatch = useDispatch();
-  const [sortOrder, setSortOrder] = useState("default");
+  const [sortOrder, setSortOrder] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const en_brand_content = searchParams.getAll("en_brand_content");
   const en_hairCategory_content = searchParams.getAll(
@@ -74,14 +74,6 @@ const ProductsPage = () => {
   useEffect(() => {
     if (sortOrder) {
       setSearchParams({
-        en_brand_content,
-        en_hairCategory_content,
-        en_electricalTools_content,
-        en_hairCareBenefit_content,
-        en_keyIngredients_content,
-        en_price_content,
-        en_savingPercent_content,
-        en_averageReviewScore_content,
         sortOrder,
       });
     }
