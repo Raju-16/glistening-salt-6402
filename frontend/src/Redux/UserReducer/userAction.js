@@ -26,5 +26,5 @@ export const LoginUser = (params) => async (dispatch) => {
     .then((r) =>
       dispatch({ type: actionTypes.USER_LOGIN_SUCCESS, payload: r.data })
     )
-    .catch((e) => dispatch({ type: actionTypes.USER_LOGIN_FAILURE }));
+    .catch(() => dispatch({ type: actionTypes.USER_LOGIN_FAILURE }));
 };
