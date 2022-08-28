@@ -6,7 +6,7 @@ export const SignupUser = (params) => async (dispatch) => {
   return await axios({
     method: "post",
     url: "/api/signup",
-    baseURL: "http://localhost:1000",
+    baseURL: "https://pacific-fortress-81214.herokuapp.com/",
     data: params,
   })
     .then((r) =>
@@ -20,7 +20,7 @@ export const LoginUser = (params) => async (dispatch) => {
   return await axios({
     method: "post",
     url: "/api/login",
-    baseURL: "http://localhost:1000",
+    baseURL: "https://pacific-fortress-81214.herokuapp.com/",
     data: params,
   })
     .then((r) =>

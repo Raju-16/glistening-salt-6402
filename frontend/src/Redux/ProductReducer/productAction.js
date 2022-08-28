@@ -5,7 +5,7 @@ export const getProducts = (params) => async (dispatch) => {
   console.log(params);
   dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
   return await axios
-    .get(`http://localhost:1000/api/products/?${params}`)
+    .get(`https://pacific-fortress-81214.herokuapp.com/api/products/?${params}`)
     .then((r) =>
       dispatch({ type: actionTypes.GET_PRODUCTS_SUCCESS, payload: r.data })
     )
@@ -15,7 +15,7 @@ export const getProducts = (params) => async (dispatch) => {
 // export const getSortedProducts = (sortBy) => async (dispatch) => {
 //   dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
 //   return await axios
-//     .get(`http://localhost:1000/api/products/?${sortBy}`)
+//     .get(`https://pacific-fortress-81214.herokuapp.com/api/products/?${sortBy}`)
 //     .then((r) => {
 //       console.log(r.data);
 //       dispatch({ type: actionTypes.GET_PRODUCTS_SUCCESS, payload: r.data });
@@ -26,7 +26,7 @@ export const getProducts = (params) => async (dispatch) => {
 export const getProductDetails = (id) => async (dispatch) => {
   dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
   return axios
-    .get(`http://localhost:1000/api/products/${id}`)
+    .get(`https://pacific-fortress-81214.herokuapp.com/api/products/${id}`)
     .then((r) =>
       dispatch({
         type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS,

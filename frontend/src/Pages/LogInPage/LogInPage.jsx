@@ -3,18 +3,25 @@ import { useDispatch } from "react-redux";
 import "./LogInPage.css";
 import LogInSignUpNavbar from "../../Components/LogInSignUpNavbar/LogInSignUpNavbar";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { LoginUser } from "../../Redux/UserReducer/action";
+import { LoginUser } from "../../Redux/UserReducer/userAction";
+import { USER_LOGIN_SUCCESS } from "../../Redux/UserReducer/userActionTypes";
+import { useNavigate } from "react-router-dom";
 
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (email && password) {
-      dispatch(LoginUser({ email, password }));
+      dispatch(LoginUser({ email, password })).then((r) => {
+        if (r.type === USER_LOGIN_SUCCESS) {
+          navigate("/");
+        }
+      });
     }
   };
 

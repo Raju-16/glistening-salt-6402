@@ -6,8 +6,11 @@ import "./SignUpPage.css";
 import CancelIcon from "@mui/icons-material/Cancel";
 import CheckIcon from "@mui/icons-material/Check";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
-import { SignupUser } from "../../Redux/UserReducer/userAction";
-import { USER_SIGNUP_SUCCESS } from "../../Redux/UserReducer/userActionTypes";
+import { LoginUser, SignupUser } from "../../Redux/UserReducer/userAction";
+import {
+  USER_LOGIN_SUCCESS,
+  USER_SIGNUP_SUCCESS,
+} from "../../Redux/UserReducer/userActionTypes";
 
 const initialState = {
   fullname: "",
@@ -84,7 +87,13 @@ const SignUpPage = () => {
     e.preventDefault();
     dispatch(SignupUser(state)).then((r) => {
       if (r.type === USER_SIGNUP_SUCCESS) {
-        navigate("/a");
+        dispatch(
+          LoginUser({ email: state.email, password: state.password })
+        ).then((r) => {
+          if (r.type === USER_LOGIN_SUCCESS) {
+            navigate("/hiii");
+          }
+        });
       }
     });
   };
