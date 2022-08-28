@@ -72,3 +72,16 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 35px;
 }
+
+
+@media(max-width: 900px){
+    .productspage{
+        flex-direction: column;
+    }
+    .filtersidebar{
+        display: none;
+    }
+    .products__allproducts{
+    grid-template-columns: repeat(2, 1fr);
+    }
+}

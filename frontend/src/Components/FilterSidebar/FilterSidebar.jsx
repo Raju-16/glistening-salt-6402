@@ -64,8 +64,9 @@ const reducer = (state = initialState, { type, payload }) => {
 };
 
 const FilterSidebar = () => {
-  const [facetFilters, setFacetFilters] = useState([]);
+  const [facetFilters, setFacetFilters] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+  const sortOrder = searchParams.get("sortOrder");
 
   const [state, setter] = useReducer(reducer, initialState);
 
@@ -90,22 +91,85 @@ const FilterSidebar = () => {
   };
 
   useEffect(() => {
+    setter({
+      type: "en_brand_content",
+      payload: searchParams.getAll("en_brand_content") || [],
+    });
+    setter({
+      type: "en_hairCategory_content",
+      payload: searchParams.getAll("en_hairCategory_content") || [],
+    });
+    setter({
+      type: "en_electricalTools_content",
+      payload: searchParams.getAll("en_electricalTools_content") || [],
+    });
+    setter({
+      type: "en_hairCareBenefit_content",
+      payload: searchParams.getAll("en_hairCareBenefit_content") || [],
+    });
+    setter({
+      type: "en_keyIngredients_content",
+      payload: searchParams.getAll("en_keyIngredients_content") || [],
+    });
+    setter({
+      type: "en_price_content",
+      payload: searchParams.getAll("en_price_content") || [],
+    });
+    setter({
+      type: "en_averageReviewScore_content",
+      payload: searchParams.getAll("en_averageReviewScore_content") || [],
+    });
+  }, []);
+
+  useEffect(() => {
     if (
       state.en_brand_content?.length > 0 ||
-      state.en_hairCategory_content?.length > 0
+      state.en_hairCategory_content?.length > 0 ||
+      state.en_electricalTools_content?.length > 0 ||
+      state.en_hairCareBenefit_content?.length > 0 ||
+      state.en_keyIngredients_content?.length > 0 ||
+      state.en_price_content?.length > 0 ||
+      state.en_savingPercent_content?.length ||
+      state.en_averageReviewScore_content?.length > 0
     ) {
+      // setFacetFilters(
+      //   state.en_brand_content
+      //     .map((item) => {
+      //       return "en_brand_content:" + item;
+      //     })
+      //     .join("@")
+      // );
+      // setSearchParams({ facetFilters: facetFilters, sortOrder: sortOrder });
       setSearchParams({
-        en_hairCategory_content: state.en_hairCategory_content,
         en_brand_content: state.en_brand_content,
+        en_hairCategory_content: state.en_hairCategory_content,
+        en_electricalTools_content: state.en_electricalTools_content,
+        en_hairCareBenefit_content: state.en_hairCareBenefit_content,
+        en_keyIngredients_content: state.en_keyIngredients_content,
+        en_price_content: state.en_price_content,
+        en_savingPercent_content: state.en_savingPercent_content,
+        en_averageReviewScore_content: state.en_averageReviewScore_content,
+        sortOrder: sortOrder,
       });
+    } else {
+      setSearchParams({});
     }
   }, [
     state.en_brand_content?.length,
     state.en_hairCategory_content?.length,
+    state.en_electricalTools_content?.length,
+    state.en_hairCareBenefit_content?.length,
+    state.en_keyIngredients_content?.length,
+    state.en_price_content?.length,
+    state.en_savingPercent_content?.length,
+    state.en_averageReviewScore_content?.length,
     setSearchParams,
   ]);
 
-  console.log(state.en_brand_content, state.en_hairCategory_content);
+  console.log(state);
+  console.log(state.en_brand_content.includes("Alterna"));
+
+  // console.log(state.en_brand_content);
 
   return (
     <div className="filtersidebar">
@@ -132,7 +196,10 @@ const FilterSidebar = () => {
                   <input
                     type="checkbox"
                     value={"Alterna"}
-                    defaultChecked={state.en_brand_content.includes("Alterna")}
+                    // defaultChecked={
+                    //   state.en_brand_content.includes("Alterna") ? true : false
+                    // }
+                    defaultChecked={true}
                     onChange={(e) =>
                       handleChangeFilter(
                         e,
@@ -435,19 +502,75 @@ const FilterSidebar = () => {
             <Scrollbar style={{ width: "100%", height: 150 }}>
               <div className="products__inputCheckboxes">
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Hair Curler"}
+                    defaultChecked={state.en_electricalTools_content.includes(
+                      "Hair Curler"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_electricalTools_content,
+                        "en_electricalTools_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Hair Curler</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Hair Dryer"}
+                    defaultChecked={state.en_electricalTools_content.includes(
+                      "Hair Dryer"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_electricalTools_content,
+                        "en_electricalTools_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Hair Dryer</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Hair Straightener"}
+                    defaultChecked={state.en_electricalTools_content.includes(
+                      "Hair Straightener"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_electricalTools_content,
+                        "en_electricalTools_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Hair Straightener</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Hair Brushes"}
+                    defaultChecked={state.en_electricalTools_content.includes(
+                      "Hair Brushes"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_electricalTools_content,
+                        "en_electricalTools_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Hair Brushes</label>
                 </div>
               </div>
@@ -467,19 +590,75 @@ const FilterSidebar = () => {
             <Scrollbar style={{ width: "100%", height: 150 }}>
               <div className="products__inputCheckboxes">
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Anti-Dandruff"}
+                    defaultChecked={state.en_hairCareBenefit_content.includes(
+                      "Anti-Dandruff"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_hairCareBenefit_content,
+                        "en_hairCareBenefit_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Anti-Dandruff</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Anti-Frizz"}
+                    defaultChecked={state.en_hairCareBenefit_content.includes(
+                      "Anti-Frizz"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_hairCareBenefit_content,
+                        "en_hairCareBenefit_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Anti-Frizz</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Balancing"}
+                    defaultChecked={state.en_hairCareBenefit_content.includes(
+                      "Balancing"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_hairCareBenefit_content,
+                        "en_hairCareBenefit_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Balancing</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Scalp Treatment"}
+                    defaultChecked={state.en_hairCareBenefit_content.includes(
+                      "Scalp Treatment"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_hairCareBenefit_content,
+                        "en_hairCareBenefit_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Scalp Treatment</label>
                 </div>
               </div>
@@ -495,39 +674,165 @@ const FilterSidebar = () => {
             <Scrollbar style={{ width: "100%", height: 150 }}>
               <div className="products__inputCheckboxes">
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Aloe Vera"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Aloe Vera"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Aloe Vera</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Amino Acids"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Amino Acids"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Amino Acids</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Biotin"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Biotin"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Biotin</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Caffeine"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Caffeine"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Caffeine</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Castor Oil"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Castor Oil"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Castor Oil</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Coconut Oil"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Coconut Oil"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Coconut Oil</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Green Tea"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Green Tea"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Green Tea</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Vitamin C"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Vitamin C"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Vitamin C</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Vitamin E"}
+                    defaultChecked={state.en_keyIngredients_content.includes(
+                      "Vitamin E"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_keyIngredients_content,
+                        "en_keyIngredients_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Vitamin E</label>
                 </div>
               </div>
@@ -546,23 +851,93 @@ const FilterSidebar = () => {
             <Scrollbar style={{ width: "100%", height: 150 }}>
               <div className="products__inputCheckboxes">
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Less than $10"}
+                    defaultChecked={state.en_price_content.includes(
+                      "Less than $10"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_price_content,
+                        "en_price_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Less than $10</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"$10 - $25"}
+                    defaultChecked={state.en_price_content.includes(
+                      "$10 - $25"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_price_content,
+                        "en_price_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>$10 - $25</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"$25 - $50"}
+                    defaultChecked={state.en_price_content.includes(
+                      "$25 - $50"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_price_content,
+                        "en_price_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>$25 - $50</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"$50 - $100"}
+                    defaultChecked={state.en_price_content.includes(
+                      "$50 - $100"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_price_content,
+                        "en_price_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>$50 - $100</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"More than $100"}
+                    defaultChecked={state.en_price_content.includes(
+                      "More than $100"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_price_content,
+                        "en_price_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>More than $100</label>
                 </div>
               </div>
@@ -581,15 +956,57 @@ const FilterSidebar = () => {
             <Scrollbar style={{ width: "100%", height: 150 }}>
               <div className="products__inputCheckboxes">
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"Up to 25%"}
+                    defaultChecked={state.en_savingPercent_content.includes(
+                      "Up to 25%"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_savingPercent_content,
+                        "en_savingPercent_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>Up to 25%</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"25% - 50%"}
+                    defaultChecked={state.en_savingPercent_content.includes(
+                      "25% - 50%"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_savingPercent_content,
+                        "en_savingPercent_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>25% - 50%</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"50% - 75%"}
+                    defaultChecked={state.en_savingPercent_content.includes(
+                      "50% - 75%"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_savingPercent_content,
+                        "en_savingPercent_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>50% - 75%</label>
                 </div>
               </div>
@@ -608,15 +1025,57 @@ const FilterSidebar = () => {
             <Scrollbar style={{ width: "100%", height: 150 }}>
               <div className="products__inputCheckboxes">
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"2-3"}
+                    defaultChecked={state.en_averageReviewScore_content.includes(
+                      "2-3"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_averageReviewScore_content,
+                        "en_averageReviewScore_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>2-3</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"3-4"}
+                    defaultChecked={state.en_averageReviewScore_content.includes(
+                      "3-4"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_averageReviewScore_content,
+                        "en_averageReviewScore_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>3-4</label>
                 </div>
                 <div>
-                  <input type="checkbox" className="products__checkbox" />
+                  <input
+                    type="checkbox"
+                    value={"4+"}
+                    defaultChecked={state.en_averageReviewScore_content.includes(
+                      "4+"
+                    )}
+                    onChange={(e) =>
+                      handleChangeFilter(
+                        e,
+                        state.en_averageReviewScore_content,
+                        "en_averageReviewScore_content"
+                      )
+                    }
+                    className="products__checkbox"
+                  />
                   <label>4+</label>
                 </div>
               </div>
