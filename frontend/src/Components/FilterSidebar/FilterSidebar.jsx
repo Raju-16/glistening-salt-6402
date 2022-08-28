@@ -196,10 +196,9 @@ const FilterSidebar = () => {
                   <input
                     type="checkbox"
                     value={"Alterna"}
-                    // defaultChecked={
-                    //   state.en_brand_content.includes("Alterna") ? true : false
-                    // }
-                    defaultChecked={true}
+                    defaultChecked={
+                      state.en_brand_content.includes("Alterna") ? true : false
+                    }
                     onChange={(e) =>
                       handleChangeFilter(
                         e,

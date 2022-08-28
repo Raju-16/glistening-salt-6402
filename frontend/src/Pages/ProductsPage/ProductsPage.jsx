@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useSearchParams } from "react-router-dom";
 import FilterSidebar from "../../Components/FilterSidebar/FilterSidebar";
 import ProductFromProductsPage from "../../Components/ProductFromProductsPage/ProductFromProductsPage";
-import { getProducts } from "../../Redux/ProductReducer/productAction";
+import {
+  getProducts,
+  getSortedProducts,
+} from "../../Redux/ProductReducer/productAction";
 import "./ProductsPage.css";
 
 const ProductsPage = () => {
@@ -34,24 +37,38 @@ const ProductsPage = () => {
   const location = useLocation();
   const handleSortOrder = (e) => {
     setSortOrder(e.target.value);
+
+    console.log(products);
   };
 
   useEffect(() => {
-    if (products?.length === 0 || location.search) {
-      const params = {
-        brand: en_brand_content,
-        hairCategory: en_hairCategory_content,
-        hairTool: en_electricalTools_content,
-        hairBenefit: en_hairCareBenefit_content,
-        keyIngredients: en_keyIngredients_content,
-      };
-      console.log("hii");
-      dispatch(getProducts({ params, sortOrder }));
-    } else {
+    if (sortOrder === "priceAscending") {
+      products.sort((a, b) => a.priceDiscount - b.priceDiscount);
+    } else if (sortOrder === "priceDescending") {
+      products.sort((a, b) => b.priceDiscount - a.priceDiscount);
+    } else if (sortOrder === "title") {
+      console.log(sortOrder);
+      products.sort((a, b) => {
+        if (a.title > b.title) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+      console.log(products);
+    } else if (sortOrder === "default") {
+      console.log(sortOrder);
+      dispatch(getProducts());
+    }
+  }, [sortOrder, dispatch]);
+
+  useEffect(() => {
+    if (products?.length === 0) {
       dispatch(getProducts({}));
     }
-  }, [products?.length, dispatch, location.search]);
+  }, [products?.length, dispatch, sortOrder]);
   // console.log(sortOrder);
+  // console.log(products);
   // console.log("location", location);
 
   useEffect(() => {
@@ -84,7 +101,7 @@ const ProductsPage = () => {
           <div className="products__sorting">
             <label>Sort by</label>
             <select name="sortOrder" onChange={(e) => handleSortOrder(e)}>
-              <option value="Default">Default</option>
+              <option value="default">Default</option>
               <option value="priceAscending">Price:Low to High</option>
               <option value="priceDescending">Price:High to Low</option>
               <option value="title">A-Z</option>

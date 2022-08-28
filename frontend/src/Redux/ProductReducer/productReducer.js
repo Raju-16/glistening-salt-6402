@@ -26,6 +26,23 @@ export const productReducer = (state = initialState, { type, payload }) => {
         isLoading: false,
         isError: true,
       };
+    case actionTypes.GET_PRODUCT_DETAILS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case actionTypes.GET_PRODUCT_DETAILS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        productDetails: payload,
+      };
+    case actionTypes.GET_PRODUCT_DETAILS_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
 
     default:
       return state;
