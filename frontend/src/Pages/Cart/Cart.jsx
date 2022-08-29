@@ -35,8 +35,8 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {myState.map((elem) => {
-              return <CartItem key={elem.id} {...elem} />;
+            {myState.map((ele) => {
+              return <CartItem key={ele._id} ele={ele} />;
             })}
           </tbody>
         </TABLE>

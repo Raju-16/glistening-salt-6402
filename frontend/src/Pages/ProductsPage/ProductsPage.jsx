@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useSearchParams } from "react-router-dom";
 import FilterSidebar from "../../Components/FilterSidebar/FilterSidebar";
 import ProductFromProductsPage from "../../Components/ProductFromProductsPage/ProductFromProductsPage";
+
 import {
   getProducts,
   getSortedProducts,
@@ -15,8 +16,26 @@ const ProductsPage = () => {
   const [sortOrder, setSortOrder] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const en_brand_content = searchParams.getAll("en_brand_content");
-  console.log("products", products);
-
+  const en_hairCategory_content = searchParams.getAll(
+    "en_hairCategory_content"
+  );
+  const en_electricalTools_content = searchParams.getAll(
+    "en_electricalTools_content"
+  );
+  const en_hairCareBenefit_content = searchParams.getAll(
+    "en_hairCareBenefit_content"
+  );
+  const en_keyIngredients_content = searchParams.getAll(
+    "en_keyIngredients_content"
+  );
+  const en_price_content = searchParams.getAll("en_price_content");
+  const en_savingPercent_content = searchParams.getAll(
+    "en_savingPercent_content"
+  );
+  const en_averageReviewScore_content = searchParams.getAll(
+    "en_averageReviewScore_content"
+  );
+  const location = useLocation();
   const handleSortOrder = (e) => {
     setSortOrder(e.target.value);
 
@@ -46,9 +65,12 @@ const ProductsPage = () => {
 
   useEffect(() => {
     if (products?.length === 0) {
-      dispatch(getProducts());
+      dispatch(getProducts({}));
     }
-  }, [products?.length, dispatch]);
+  }, [products?.length, dispatch, sortOrder]);
+  // console.log(sortOrder);
+  // console.log(products);
+  // console.log("location", location);
 
   useEffect(() => {
     if (sortOrder) {
@@ -58,36 +80,38 @@ const ProductsPage = () => {
     }
   }, [sortOrder, setSearchParams]);
 
-  // console.log(products);
+  console.log(products);
 
   return (
-    <div className="productspage">
-      <FilterSidebar />
-      <div className="products__list">
-        <div className="products__heading">
-          <p className="products__headTitle">Hair Care Products</p>
-          <p className="products__count">{products.length} results</p>
-        </div>
-        <div className="products__functionality">
-          <div className="products__sorting">
-            <label>Sort by</label>
-            <select name="sortOrder" onChange={(e) => handleSortOrder(e)}>
-              <option value="default">Default</option>
-              <option value="priceAscending">Price:Low to High</option>
-              <option value="priceDescending">Price:High to Low</option>
-              <option value="title">A-Z</option>
-            </select>
+    <>
+      <div className="productspage">
+        <FilterSidebar />
+        <div className="products__list">
+          <div className="products__heading">
+            <p className="products__headTitle">Hair Care Products</p>
+            <p className="products__count">{products.length} results</p>
           </div>
-          {/* <div className="products__pagination">pagination</div> */}
-        </div>
-        <div className="products__allproducts">
-          {products?.length > 0 &&
-            products?.map((item) => {
-              return <ProductFromProductsPage key={item._id} item={item} />;
-            })}
+          <div className="products__functionality">
+            <div className="products__sorting">
+              <label>Sort by</label>
+              <select name="sortOrder" onChange={(e) => handleSortOrder(e)}>
+                <option value="default">Default</option>
+                <option value="priceAscending">Price:Low to High</option>
+                <option value="priceDescending">Price:High to Low</option>
+                <option value="title">A-Z</option>
+              </select>
+            </div>
+            {/* <div className="products__pagination">pagination</div> */}
+          </div>
+            <div className="products__allproducts">
+              {products?.length > 0 &&
+                products?.map((item) => {
+                  return <ProductFromProductsPage key={item._id} item={item} />;
+                })}
+            </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

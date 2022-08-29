@@ -156,6 +156,7 @@ export const CheckoutContainer = styled.div`
   width: 65%;
   margin: auto;
   display: flex;
+  gap:30px;
   margin-top: 30px;
 `;
 // ---------------------------------------------------------------------------------------
@@ -163,7 +164,7 @@ export const ShipingAdd = styled.div`
   div:first-child {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin-top: 92px;
-    width: 80%;
+    width: 70%;
     border-top: 4px solid black;
     padding: 20px 15px;
     background-color: #fff;
@@ -255,7 +256,7 @@ export const ShipingAdd = styled.div`
   }
   .button {
     background-color: #fff;
-    width: 80%;
+    width: 70%;
     height: auto;
     padding: 20px;
     display: flex;

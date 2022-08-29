@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CartProduct } from "../Cart/Style";
 import { GET_CART_PRODUCTS } from "../../Redux/CartReducer/cartAction";
+
 const CheckoutProducts = () => {
   const myState = useSelector((state) => state.cartReducer.cartProducts);
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const CheckoutProducts = () => {
                   style={{ marginRight: "10px" }}
                   width="80px"
                   height="80px"
-                  src={elem.image}
+                  src={elem.imageUrl[0]}
                   alt=""
                 />
               </div>
